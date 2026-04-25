@@ -37,10 +37,20 @@ img {
 
 .pdf-export {
   break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.resume-panel {
+  break-inside: avoid;
+  page-break-inside: avoid;
 }
 
 @media print {
   body {
     background: #ffffff;
+  }
+
+  .pdf-export {
+    box-shadow: none;
   }
 }

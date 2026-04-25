@@ -313,42 +313,57 @@ export default function App() {
 
         <section
           ref={resumeRef}
-          className="pdf-export rounded-[2rem] border border-slate-200 bg-white p-8 shadow-panel sm:p-10"
+          className="pdf-export mx-auto w-full max-w-4xl rounded-[2rem] border border-slate-200 bg-white p-6 shadow-panel sm:p-8"
         >
-          <div className="grid gap-8 border-b border-slate-200 pb-8 md:grid-cols-[1.3fr_0.7fr]">
-            <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.3em] text-accent">
-                Resume Snapshot
-              </p>
-              <h2 className="mt-3 font-display text-4xl font-bold text-ink">{portfolio.name}</h2>
-              <p className="mt-2 text-lg font-semibold text-slate-600">{portfolio.title}</p>
-              <p className="mt-4 max-w-2xl text-sm leading-7 text-slate-600">{portfolio.bio}</p>
+          <div className="grid gap-6 border-b border-slate-200 pb-6 md:grid-cols-[1.15fr_0.85fr]">
+            <div className="flex gap-4">
+              <img
+                src={portfolio.photo}
+                alt={`${portfolio.name} resume profile`}
+                className="h-28 w-24 shrink-0 rounded-2xl object-cover ring-1 ring-slate-200"
+              />
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-[0.3em] text-accent">
+                  Resume Snapshot
+                </p>
+                <h2 className="mt-2 font-display text-3xl font-bold text-ink">{portfolio.name}</h2>
+                <p className="mt-1 text-base font-semibold text-slate-600">{portfolio.title}</p>
+                <p className="mt-3 max-w-xl text-sm leading-6 text-slate-600">{portfolio.bio}</p>
+              </div>
             </div>
-            <div className="space-y-2 text-sm text-slate-600">
-              <p>{portfolio.email}</p>
-              <p>{portfolio.linkedin.replace("https://", "")}</p>
-              <p>{portfolio.github.replace("https://", "")}</p>
+            <div className="resume-panel rounded-2xl bg-slate-50 p-4 text-sm text-slate-600">
+              <h3 className="text-sm font-bold uppercase tracking-[0.25em] text-ink">Contact</h3>
+              <div className="mt-3 space-y-2 leading-6">
+                <p>{portfolio.email}</p>
+                <p>{portfolio.linkedin.replace("https://", "")}</p>
+                <p>{portfolio.github.replace("https://", "")}</p>
+              </div>
             </div>
           </div>
 
-          <div className="grid gap-8 py-8 md:grid-cols-[0.9fr_1.1fr]">
-            <div>
-              <h3 className="text-lg font-bold text-ink">Core Skills</h3>
-              <ul className="mt-4 space-y-2 text-sm leading-6 text-slate-600">
+          <div className="grid gap-6 py-6 md:grid-cols-[0.8fr_1.2fr]">
+            <div className="resume-panel rounded-2xl bg-slate-50 p-4">
+              <h3 className="text-sm font-bold uppercase tracking-[0.25em] text-ink">Core Skills</h3>
+              <ul className="mt-3 grid gap-2 text-sm leading-6 text-slate-600 sm:grid-cols-2 md:grid-cols-1">
                 {skills.slice(0, 8).map((skill) => (
-                  <li key={skill.name}>{skill.name}</li>
+                  <li key={skill.name} className="rounded-xl bg-white px-3 py-2 ring-1 ring-slate-200">
+                    {skill.name}
+                  </li>
                 ))}
               </ul>
             </div>
 
             <div>
-              <h3 className="text-lg font-bold text-ink">Projects</h3>
-              <div className="mt-4 space-y-5">
+              <h3 className="text-sm font-bold uppercase tracking-[0.25em] text-ink">Projects</h3>
+              <div className="mt-3 space-y-4">
                 {projects.map((project) => (
-                  <article key={project.title}>
+                  <article
+                    key={project.title}
+                    className="resume-panel rounded-2xl border border-slate-200 px-4 py-3"
+                  >
                     <div className="flex flex-wrap items-center justify-between gap-2">
-                      <h4 className="text-base font-semibold text-ink">{project.title}</h4>
-                      <span className="text-xs font-semibold uppercase tracking-[0.25em] text-accent">
+                      <h4 className="text-sm font-semibold text-ink">{project.title}</h4>
+                      <span className="text-[10px] font-semibold uppercase tracking-[0.25em] text-accent">
                         {project.stack.join(" / ")}
                       </span>
                     </div>
