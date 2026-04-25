@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  font-family: "Manrope", sans-serif;
+  background: #f8fafc;
+  color: #0f172a;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background:
+    radial-gradient(circle at top left, rgba(251, 146, 60, 0.12), transparent 28%),
+    linear-gradient(180deg, #fff7ed 0%, #f8fafc 48%, #f8fafc 100%);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.pdf-export {
+  break-inside: avoid;
+}
+
+@media print {
+  body {
+    background: #ffffff;
+  }
+}
