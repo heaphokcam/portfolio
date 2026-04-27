@@ -1,4 +1,4 @@
-# Student Portfolio PWA
+# Portfolio PWA
 
 A Vite + React + Tailwind personal portfolio that includes:
 
